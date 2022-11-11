@@ -117,6 +117,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == 3)
+        {
+            isJumping = false;
+        }
+
+        if (col.gameObject.layer == 9)
+        {
+            GameController.instance.GameOver();
+        }
+    }
+
     public void IncreasePoints(int kills)
     {
         score += kills;
