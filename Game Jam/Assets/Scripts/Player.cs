@@ -43,23 +43,23 @@ public class Player : MonoBehaviour
 
     void Upgrade()
     {
-        if (GameController.instance.score > 20)
+        if (GameController.instance.score > 20 && GameController.instance.score < 120)
         {
             jetPack= 1;
         }
-        if (GameController.instance.score < 40)
+        if (GameController.instance.score < 40 && GameController.instance.score < 60)
         {
             cannonCooldown = 3f;
         }
-        if (GameController.instance.score < 60)
+        if (GameController.instance.score > 60 && GameController.instance.score < 80)
         {
             cannonCooldown = 2f;
         }
-        if (GameController.instance.score < 80)
+        if (GameController.instance.score > 80 && GameController.instance.score < 100)
         {
             cannonCooldown = 1f;
         }
-        if (GameController.instance.score < 100)
+        if (GameController.instance.score > 100)
         {
             cannonCooldown = 0.5f;
         }

@@ -65,6 +65,16 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverObj.SetActive(true);
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     public void RestartGame()
