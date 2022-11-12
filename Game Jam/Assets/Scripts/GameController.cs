@@ -31,19 +31,22 @@ public class GameController : MonoBehaviour
         PauseGame();
     }
 
-    //public void UpdateScore(int kills)
-    //{
-  //      score += kills;
-//        scoreText.text = score.ToString();
+    public void UpdateScore(int kills)
+    {
+        score += kills;
+        scoreText.text = score.ToString();
 
-    //    PlayerPrefs.SetInt("Score", kills + totalScore);
-    //}
+        PlayerPrefs.SetInt("Score", totalScore);
+        totalScore = PlayerPrefs.GetInt("Score");
+        Debug.Log(PlayerPrefs.GetInt("Score"));
+    }
 
     public void UpdateKills(int kills)
     {
         score++;
         scoreText.text = score.ToString();
     }
+
     public void PauseGame()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -74,6 +77,11 @@ public class GameController : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
+        }
+
+        if(score > totalScore)
+        {
+            UpdateScore(totalScore);
         }
     }
 
