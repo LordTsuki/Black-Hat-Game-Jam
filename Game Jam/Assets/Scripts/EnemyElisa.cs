@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class EnemyElisa : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Components")]
+    private Rigidbody2D enem
     void Start()
     {
-        
+        for(I=0;I!=-1;I++)
+        {
+            timerSpawnInimigos = 10;
+            
+        }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
