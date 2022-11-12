@@ -49,15 +49,15 @@ public class Player : MonoBehaviour
         }
         if (GameController.instance.score < 40 && GameController.instance.score < 60)
         {
-            cannonCooldown = 3f;
+            cannonCooldown = 1.5f;
         }
         if (GameController.instance.score > 60 && GameController.instance.score < 80)
         {
-            cannonCooldown = 2f;
+            cannonCooldown = 1f;
         }
         if (GameController.instance.score > 80 && GameController.instance.score < 100)
         {
-            cannonCooldown = 1f;
+            cannonCooldown = 0.75f;
         }
         if (GameController.instance.score > 100)
         {
