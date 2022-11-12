@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1f);
     }
 
     private void FixedUpdate()

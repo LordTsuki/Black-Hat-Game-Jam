@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -13,8 +12,8 @@ public class Player : MonoBehaviour
     private int score;
 
     [Header("Checks")]
-    private bool isJumping;
-    private bool isShooting;
+    public bool isJumping;
+    public bool isShooting;
 
     [Header("Components")]
     private Rigidbody2D rig;
@@ -30,22 +29,22 @@ public class Player : MonoBehaviour
         GameController.instance.UpdateScore(score);
     }
 
-    private void Update()
+    void Update()
     {
         CannonShoot();
+        Jump();
     }
     void FixedUpdate()
     {
-        Jump();
         Move();
     }
 
     void CannonShoot()
     {
-        StartCoroutine("Shoot");
+        StartCoroutine("ShootLaser");
     }
 
-    IEnumerator Shoot()
+    IEnumerator ShootLaser()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
