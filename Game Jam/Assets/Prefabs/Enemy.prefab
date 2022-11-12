@@ -10,8 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 520985872611492538}
   - component: {fileID: 1585628172980585070}
+<<<<<<< HEAD
   - component: {fileID: -6084823109373435001}
   - component: {fileID: -7002464514533727223}
+=======
+  - component: {fileID: 7718875228828413575}
+  - component: {fileID: 1292706320292703642}
+  - component: {fileID: 1573458004896528174}
+>>>>>>> 8df377cd0ad4b5988e1bf9cdcc3924307ec7ee07
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -86,13 +92,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!114 &-6084823109373435001
 MonoBehaviour:
+=======
+--- !u!50 &7718875228828413575
+Rigidbody2D:
+  serializedVersion: 4
+>>>>>>> 8df377cd0ad4b5988e1bf9cdcc3924307ec7ee07
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855547940310480861}
+<<<<<<< HEAD
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b203ab58b8dd9754ab4dd02033a85385, type: 3}
@@ -104,6 +117,23 @@ MonoBehaviour:
   damage: 1
 --- !u!61 &-7002464514533727223
 BoxCollider2D:
+=======
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!70 &1292706320292703642
+CapsuleCollider2D:
+>>>>>>> 8df377cd0ad4b5988e1bf9cdcc3924307ec7ee07
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,6 +146,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+<<<<<<< HEAD
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,3 +159,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+=======
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!114 &1573458004896528174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855547940310480861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b203ab58b8dd9754ab4dd02033a85385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyRb: {fileID: 7718875228828413575}
+  moveSpeed: 2
+>>>>>>> 8df377cd0ad4b5988e1bf9cdcc3924307ec7ee07

@@ -53,11 +53,11 @@ public class Player : MonoBehaviour
 
             if(transform.rotation.y == 0)
             {
-                Shoot.GetComponent<Shoot>().isRight = true;
+               Shoot.GetComponent<Shoot>().isRight = true;
             }
             if(transform.rotation.y == 180)
             {
-                Shoot.GetComponent<Shoot>().isRight = false;
+               Shoot.GetComponent<Shoot>().isRight = false;
             }
 
             yield return new WaitForSeconds(0.2f);
