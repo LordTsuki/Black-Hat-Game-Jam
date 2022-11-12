@@ -16,7 +16,11 @@ public class InfiniteScene : MonoBehaviour
     {
         startPos = transform.position.x;
         lenght = GetComponent<SpriteRenderer>().bounds.size.x;
+<<<<<<< HEAD
         cam = Camera.main.transform;
+=======
+        //cam = Camera.main.transform.;
+>>>>>>> 4e4e0e7736c8ccb4bc73f6159e23d0211421e86d
     }
 
     // Update is called once per frame
