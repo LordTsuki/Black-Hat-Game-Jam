@@ -3,16 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
-    // Start is called before the first frame update
+{ 
+    private Rigidbody2D enemyRb;
+ 
+    public float moveSpeed;
+  
     void Start()
     {
-        
+        enemyRb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Move()
+    {
+        enemyRb.velocity = new Vector2(moveSpeed, enemyRb.velocity.y);
     }
 }
