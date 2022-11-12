@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -14,8 +13,8 @@ public class Player : MonoBehaviour
 
     
     [Header("Checks")]
-    private bool isJumping;
-    private bool isShooting;
+    public bool isJumping;
+    public bool isShooting;
 
     [Header("Components")]
     private Rigidbody2D rig;
@@ -31,23 +30,34 @@ public class Player : MonoBehaviour
       //  GameController.instance.UpdateScore(score);
     }
 
+<<<<<<< HEAD
 
     private void Update()
     {
         //CannonShoot();
+=======
+    void Update()
+    {
+        CannonShoot();
+        Jump();
+>>>>>>> 46d6df766fd97700a0ab913e8eadc93decf0aa5d
     }
     void FixedUpdate()
     {
-        Jump();
         Move();
     }
     /*
     void CannonShoot()
     {
-        StartCoroutine("Shoot");
+        StartCoroutine("ShootLaser");
     }
+<<<<<<< HEAD
  
     IEnumerator Shoot()
+=======
+
+    IEnumerator ShootLaser()
+>>>>>>> 46d6df766fd97700a0ab913e8eadc93decf0aa5d
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -119,7 +129,25 @@ public class Player : MonoBehaviour
             isJumping = true;
         }
     }
+<<<<<<< HEAD
     void OnCollisionEnter2D(Collision2D col)
+=======
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == 3)
+        {
+            isJumping = false;
+        }
+
+        if (col.gameObject.layer == 9)
+        {
+            GameController.instance.GameOver();
+        }
+    }
+
+    public void IncreasePoints(int kills)
+>>>>>>> 46d6df766fd97700a0ab913e8eadc93decf0aa5d
     {
         if (col.gameObject.layer == 3)
         {
