@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private float movement;
     private int score;
 
+    
     [Header("Checks")]
     private bool isJumping;
     private bool isShooting;
@@ -20,31 +21,32 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private Animator anim;
 
-    public GameObject shoot;
-    public Transform shootPoint;
+   // public GameObject shoot;
+   //public Transform shootPoint;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        GameController.instance.UpdateScore(score);
+      //  GameController.instance.UpdateScore(score);
     }
+
 
     private void Update()
     {
-        CannonShoot();
+        //CannonShoot();
     }
     void FixedUpdate()
     {
         Jump();
         Move();
     }
-
+    /*
     void CannonShoot()
     {
         StartCoroutine("Shoot");
     }
-
+ 
     IEnumerator Shoot()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -67,7 +69,6 @@ public class Player : MonoBehaviour
             anim.SetInteger("Transition", 0);
         }
     }
-
     public void Damage(int dmg)
     {
         health -= dmg;
@@ -78,12 +79,14 @@ public class Player : MonoBehaviour
             GameController.instance.GameOver();
         }
     }
+    */
     void Move()
     {
         movement = Input.GetAxis("Horizontal");
 
         rig.velocity = new Vector2(movement * speed, rig.velocity.y);
 
+        /*
         if (movement > 0)
         {
             if (!isJumping)
@@ -100,26 +103,34 @@ public class Player : MonoBehaviour
             }
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-
         if (movement == 0 && !isJumping && !isShooting)
         {
             anim.SetInteger("Transition", 0);
         }
+        */
     }
-
+    
     void Jump()
     {
         if(Input.GetButtonDown("Jump"))
         {
-            anim.SetInteger("Transition", 1);
+            //anim.SetInteger("Transition", 1);
             rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             isJumping = true;
         }
     }
-
-    public void IncreasePoints(int kills)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        score += kills;
-        GameController.instance.UpdateScore(score);
+        if (col.gameObject.layer == 3)
+        {
+            isJumping = false;
+        }
     }
-}
+        /*
+        public void IncreasePoints(int kills)
+        {
+            score += kills;
+            GameController.instance.UpdateScore(score);
+        }
+        */
+    }
