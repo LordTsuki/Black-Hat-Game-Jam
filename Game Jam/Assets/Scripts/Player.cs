@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     [Header("Checks")]
     public bool isJumping;
+    public bool doubleJump;
+    public bool jetPack;
     public bool isShooting;
 
     [Header("Components")]
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        jetPack = false;
     }
 
     void Update()
@@ -34,6 +37,14 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+    }
+
+    void Upgrade()
+    {
+        if (GameController.instance.score > 20)
+        {
+            jetPack= true;
+        }
     }
 
     void CannonShoot()
@@ -111,7 +122,17 @@ public class Player : MonoBehaviour
             {
                 anim.SetInteger("Transition", 1);
                 rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                doubleJump = true;
                 isJumping = true;
+            }
+            else
+            {
+                if (doubleJump && jetPack)
+                {
+                    anim.SetInteger("Transition", 4);
+                    rig.AddForce(new Vector2(0, jumpForce * 1.5f), ForceMode2D.Impulse);
+                    doubleJump = false;
+                }
             }
         }
     }
