@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-<<<<<<< HEAD
 {
     [Header("Movement")]
     public float speed;
@@ -67,30 +66,5 @@ public class Enemy : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player>().Damage(damage);
         }
-=======
-{ 
-    private Rigidbody2D enemyRb;
- 
-    public float moveSpeed;
-  
-    void Start()
-    {
-        enemyRb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-    }
-
-    private void Move()
-    {
-        enemyRb.velocity = new Vector2(moveSpeed, enemyRb.velocity.y);
->>>>>>> 8df377cd0ad4b5988e1bf9cdcc3924307ec7ee07
     }
 }
