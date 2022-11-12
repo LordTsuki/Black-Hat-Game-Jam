@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7956372782262336754}
   - component: {fileID: 7956372782262336757}
   - component: {fileID: 7956372782262336759}
-  - component: {fileID: 7956372782262336758}
   - component: {fileID: 7956372782262336756}
   - component: {fileID: 7956372782262336755}
+  - component: {fileID: 7292842264004720525}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7956372782262336745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.5, z: 0}
-  m_LocalScale: {x: 1.15721, y: 2.7152145, z: 1}
+  m_LocalScale: {x: 0.3165953, y: 0.27793646, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7956372783698680101}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 692911de2c3e01640864692c0862ec36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,32 +111,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &7956372782262336758
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7956372782262336745}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &7956372782262336756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +126,19 @@ MonoBehaviour:
   health: 1
   speed: 10
   jumpForce: 15
+  cannonCooldown: 0
+  jetPack: 0
   isJumping: 0
+  doubleJump: 0
   isShooting: 0
   shoot: {fileID: 1402153369366078138, guid: e1782ee04d13f574ea2a601c49fc017d, type: 3}
   shootPoint: {fileID: 7956372783698680101}
+  jetPackUpgrade1: {fileID: 0}
+  jetPackUpgrade2: {fileID: 0}
+  shootSpeed1: {fileID: 0}
+  shootSpeed2: {fileID: 0}
+  shootSpeed3: {fileID: 0}
+  shootSpeed4: {fileID: 0}
 --- !u!95 &7956372782262336755
 Animator:
   serializedVersion: 4
@@ -176,6 +159,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &7292842264004720525
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956372782262336745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06269425, y: 0.28565815}
+  m_Size: {x: 5.7067804, y: 21.558683}
+  m_Direction: 0
 --- !u!1 &7956372783479634223
 GameObject:
   m_ObjectHideFlags: 0
