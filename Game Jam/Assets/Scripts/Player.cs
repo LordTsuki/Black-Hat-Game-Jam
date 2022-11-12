@@ -23,6 +23,14 @@ public class Player : MonoBehaviour
     private Animator anim;
     public GameObject shoot;
     public Transform shootPoint;
+
+    [Header("Icons")]
+    public GameObject jetPackUpgrade1;
+    public GameObject jetPackUpgrade2;
+    public GameObject shootSpeed1;
+    public GameObject shootSpeed2;
+    public GameObject shootSpeed3;
+    public GameObject shootSpeed4;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -46,26 +54,36 @@ public class Player : MonoBehaviour
         if (GameController.instance.score > 20 && GameController.instance.score < 120)
         {
             jetPack= 1;
+            jetPackUpgrade1.SetActive(true);
         }
         if (GameController.instance.score < 40 && GameController.instance.score < 60)
         {
             cannonCooldown = 1.5f;
+            shootSpeed1.SetActive(true);
         }
         if (GameController.instance.score > 60 && GameController.instance.score < 80)
         {
             cannonCooldown = 1f;
+            shootSpeed1.SetActive(false);
+            shootSpeed2.SetActive(true);
         }
         if (GameController.instance.score > 80 && GameController.instance.score < 100)
         {
             cannonCooldown = 0.75f;
+            shootSpeed2.SetActive(false);
+            shootSpeed3.SetActive(true);
         }
         if (GameController.instance.score > 100)
         {
             cannonCooldown = 0.5f;
+            shootSpeed3.SetActive(false);
+            shootSpeed4.SetActive(true);
         }
         if (GameController.instance.score > 120)
         {
             jetPack = 2;
+            jetPackUpgrade1.SetActive(false);
+            jetPackUpgrade2.SetActive(true);
         }
     }
 

@@ -15,13 +15,13 @@ public class RandomSpawner : MonoBehaviour
     private float difficulty;
     void Start()
     {
-        
+        difficulty = 1;
+        enemyNumber = 0;
     }
 
     void Update()
     {
         EnemySpawn();
-        difficulty = 1;
         if (GameController.instance.score > 10 && difficulty < 10)
         {
             difficulty = GameController.instance.score / 10;
