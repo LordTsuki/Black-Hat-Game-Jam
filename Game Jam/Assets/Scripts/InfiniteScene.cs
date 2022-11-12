@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class InfiniteScene : MonoBehaviour
 {
-    public float speedScene;
+    private float lenght;
+    private float startPos;
+
+    private Transform cam;
+
+    public float parallaxEffect;
     // Start is called before the first frame update
     void Start()
     {
-        
+        startPos = transform.position.x;
+        lenght = GetComponent<SpriteRenderer>().bounds.size.x;
+        cam = Camera.main.transform.;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovimentScene();
+        float Distance = cam.transform.position.x * parallaxEffect;
     }
 
-    private void MovimentScene()
-    {
-        Vector2 displacement = new Vector2(Time.time * speedScene, 0);
-        GetComponent<Renderer>().material.mainTextureOffset = displacement;
-    }
 }
