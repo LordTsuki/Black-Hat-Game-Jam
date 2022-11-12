@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     [Header("Texts")]
     public Text scoreText;
+    public Text bestScoreText;
 
     [Header("Score")]
     public int score;
@@ -34,11 +35,9 @@ public class GameController : MonoBehaviour
     public void UpdateScore(int kills)
     {
         score += kills;
-        scoreText.text = score.ToString();
+        bestScoreText.text = totalScore.ToString();
 
         PlayerPrefs.SetInt("Score", totalScore);
-        totalScore = PlayerPrefs.GetInt("Score");
-        Debug.Log(PlayerPrefs.GetInt("Score"));
     }
 
     public void UpdateKills(int kills)
@@ -81,7 +80,7 @@ public class GameController : MonoBehaviour
 
         if(score > totalScore)
         {
-            UpdateScore(totalScore);
+            totalScore = score;
         }
     }
 
