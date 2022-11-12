@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
@@ -39,8 +40,10 @@ public class Shoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            collision.GetComponent<Enemy>().Damage(damage);
             collision.gameObject.GetComponent<Player>().IncreasePoints(score);
             Destroy(gameObject);
+            RandomSpawner.enemyNumber--;
         }
     }
 }

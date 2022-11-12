@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class RandonSpawner : MonoBehaviour
+public class RandomSpawner : MonoBehaviour
 {
     [Header("Spawn")]
     public Transform[] spawnPoints;
@@ -11,8 +11,8 @@ public class RandonSpawner : MonoBehaviour
 
     [Header("Configurations")]
     public float spawnTime;
-    private int enemyNumber;
-    private int difficulty;
+    public static int enemyNumber;
+    private float difficulty;
     void Start()
     {
         
@@ -20,13 +20,7 @@ public class RandonSpawner : MonoBehaviour
 
     void Update()
     {
-        if(enemyNumber < difficulty)
-        {
-            int randEnemy = Random.Range(0, enemyPrefabs.Length);
-            int randSpawnPoint = Random.Range(0, spawnPoints.Length);
-
-            Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
-        }    
+        EnemySpawn(); 
     }
 
     void EnemySpawn()
@@ -36,14 +30,15 @@ public class RandonSpawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if (enemyNumber < difficulty)
+        if (enemyNumber < 10)
         {
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
             int randSpawnPoint = Random.Range(0, spawnPoints.Length);
 
             Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
+            enemyNumber++;
         }
-        difficulty += GameController.instance.score / 5;
-        yield return new WaitForSeconds(spawnTime);
+        difficulty += spawnTime - GameController.instance.score * 0.01f;
+        yield return new WaitForSeconds(difficulty);
     }
 }
