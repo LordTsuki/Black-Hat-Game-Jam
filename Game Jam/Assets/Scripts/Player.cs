@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
             }
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        if (movement < 0 && !isJumping)
+        if (movement < 0)
         {
             if (!isJumping)
             {

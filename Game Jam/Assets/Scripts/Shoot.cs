@@ -44,6 +44,11 @@ public class Shoot : MonoBehaviour
             collision.GetComponent<EnemyDrone>().Damage(damage);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.GetComponent<Enemy>().Damage(damage);
+            Destroy(gameObject);
+        }
         /*if (collision.gameObject.tag == "EnemyWheel")
         {
             collision.GetComponent<EnemyWheel>().Damage(damage);
