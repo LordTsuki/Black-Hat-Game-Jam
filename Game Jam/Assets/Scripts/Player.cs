@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         CannonShoot();
         Jump();
-        //Upgrade();
+        Upgrade();
     }
     private void FixedUpdate()
     {
