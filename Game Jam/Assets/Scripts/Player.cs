@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     {
         CannonShoot();
         Jump();
+        Upgrade();
     }
     private void FixedUpdate()
     {
@@ -151,13 +152,13 @@ public class Player : MonoBehaviour
                 if (doubleJump && jetPack == 1)
                 {
                     anim.SetInteger("Transition", 4);
-                    rig.AddForce(new Vector2(0, jumpForce * 1.5f), ForceMode2D.Impulse);
+                    rig.AddForce(new Vector2(0, jumpForce * 1f), ForceMode2D.Impulse);
                     doubleJump = false;
                 }
                 if (doubleJump && jetPack == 2)
                 {
                     anim.SetInteger("Transition", 4);
-                    rig.AddForce(new Vector2(0, jumpForce * 2f), ForceMode2D.Impulse);
+                    rig.AddForce(new Vector2(0, jumpForce * 1.25f), ForceMode2D.Impulse);
                     doubleJump = false;
                 }
             }

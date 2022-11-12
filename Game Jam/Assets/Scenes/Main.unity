@@ -288,7 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 330747584}
   m_Layer: 0
-  m_Name: GameObject (5)
+  m_Name: Spawn Right
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -399,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 424350538}
   m_Layer: 0
-  m_Name: GameObject (4)
+  m_Name: Spawn Left
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 14.11221
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -497,7 +497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 3.53, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722587659}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Spawn Right
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -594,7 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1207209797}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Spawn Right
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -845,7 +845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615177031}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Spawn Left
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -928,7 +928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1642942572}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Spawn Left
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
