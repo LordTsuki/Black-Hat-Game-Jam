@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     public void UpdateScore(int kills)
     {
         score += kills;
-        bestScoreText.text = totalScore.ToString();
+        bestScoreText.text = "Best Score = "+totalScore.ToString();
 
         PlayerPrefs.SetInt("Score", totalScore);
     }
