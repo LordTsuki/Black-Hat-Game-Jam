@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [Header("Texts")]
     public Text scoreText;
     public Text bestScoreText;
+    public Text hightScoreText;
 
     [Header("Score")]
     public int score;
@@ -36,6 +37,7 @@ public class GameController : MonoBehaviour
     {
         score += kills;
         bestScoreText.text = "Best Score = "+totalScore.ToString();
+        hightScoreText.text = "Highscore = "+totalScore.ToString();
 
         PlayerPrefs.SetInt("Score", totalScore);
     }
@@ -88,6 +90,7 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(1);
+        
     }
 
     public void Menu()
