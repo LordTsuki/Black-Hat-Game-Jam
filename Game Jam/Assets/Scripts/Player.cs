@@ -9,13 +9,13 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumpForce;
     public float cannonCooldown;
+    public int jetPack;
     private float movement;
     private int score;
 
     [Header("Checks")]
     public bool isJumping;
     public bool doubleJump;
-    public bool jetPack;
     public bool isShooting;
 
     [Header("Components")]
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        jetPack = false;
+        jetPack = 0;
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     {
         if (GameController.instance.score > 20)
         {
-            jetPack= true;
+            jetPack= 1;
         }
         if (GameController.instance.score < 40)
         {
@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
         if (GameController.instance.score < 100)
         {
             cannonCooldown = 0.5f;
+        }
+        if (GameController.instance.score > 120)
+        {
+            jetPack = 2;
         }
     }
 
@@ -144,10 +148,16 @@ public class Player : MonoBehaviour
             }
             else
             {
-                if (doubleJump && jetPack)
+                if (doubleJump && jetPack == 1)
                 {
                     anim.SetInteger("Transition", 4);
                     rig.AddForce(new Vector2(0, jumpForce * 1.5f), ForceMode2D.Impulse);
+                    doubleJump = false;
+                }
+                if (doubleJump && jetPack == 2)
+                {
+                    anim.SetInteger("Transition", 4);
+                    rig.AddForce(new Vector2(0, jumpForce * 2f), ForceMode2D.Impulse);
                     doubleJump = false;
                 }
             }
