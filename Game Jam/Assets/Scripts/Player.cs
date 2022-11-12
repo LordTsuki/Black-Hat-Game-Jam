@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int health = 1;
     public float speed;
     public float jumpForce;
+    public float cannonCooldown;
     private float movement;
     private int score;
 
@@ -45,6 +46,22 @@ public class Player : MonoBehaviour
         {
             jetPack= true;
         }
+        if (GameController.instance.score < 40)
+        {
+            cannonCooldown = 3f;
+        }
+        if (GameController.instance.score < 60)
+        {
+            cannonCooldown = 2f;
+        }
+        if (GameController.instance.score < 80)
+        {
+            cannonCooldown = 1f;
+        }
+        if (GameController.instance.score < 100)
+        {
+            cannonCooldown = 0.5f;
+        }
     }
 
     void CannonShoot()
@@ -54,7 +71,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Laser()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !isShooting)
         {
             isShooting = true;
             anim.SetInteger("Transition", 3);
@@ -69,7 +86,7 @@ public class Player : MonoBehaviour
                Shoot.GetComponent<Shoot>().isRight = false;
             }
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(cannonCooldown);
             isShooting = false;
             anim.SetInteger("Transition", 0);
         }
