@@ -81,6 +81,7 @@ public class GameController : MonoBehaviour
         if(score > totalScore)
         {
             totalScore = score;
+            UpdateScore(totalScore);
         }
     }
 
