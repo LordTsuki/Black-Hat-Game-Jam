@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class InfiniteScene : MonoBehaviour
     {
         startPos = transform.position.x;
         lenght = GetComponent<SpriteRenderer>().bounds.size.x;
-        cam = Camera.main.transform.;
+        cam = Camera.main.transform;
     }
 
     // Update is called once per frame
