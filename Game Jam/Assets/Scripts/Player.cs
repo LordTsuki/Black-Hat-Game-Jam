@@ -135,3 +135,4 @@ public class Player : MonoBehaviour
         GameController.instance.UpdateScore(score);
     }
 }
+//a
