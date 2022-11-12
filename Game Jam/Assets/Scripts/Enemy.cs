@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("Status")]
     public int health;
     public int damage;
+    public int score;
 
     [Header("Commands")]
     private bool walkRight = true;
@@ -57,14 +59,20 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            RandomSpawner.enemyNumber--;
+            GameController.instance.UpdateKills(score);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().Damage(damage);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1268f839d8b1297cfbd8f75d62da3b78c564d916

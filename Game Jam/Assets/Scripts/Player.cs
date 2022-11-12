@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        GameController.instance.UpdateScore(score);
+        //GameController.instance.UpdateKills(score);
     }
 
     void Update()
@@ -66,10 +66,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Damage(int dmg)
+    public void Damage(int damage)
     {
-        health -= dmg;
-        anim.SetTrigger("death");
+        health -= damage;
+        //anim.SetTrigger("death");
 
         if(health <= 0)
         {

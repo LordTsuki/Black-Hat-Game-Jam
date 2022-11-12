@@ -31,17 +31,18 @@ public class GameController : MonoBehaviour
         PauseGame();
     }
 
-    public void UpdateScore(int kills)
-    {
-        score += kills;
-        scoreText.text = score.ToString();
+    //public void UpdateScore(int kills)
+    //{
+  //      score += kills;
+//        scoreText.text = score.ToString();
 
-        PlayerPrefs.SetInt("Score", kills + totalScore);
-    }
+    //    PlayerPrefs.SetInt("Score", kills + totalScore);
+    //}
 
     public void UpdateKills(int kills)
     {
-        scoreText.text = kills.ToString();
+        score++;
+        scoreText.text = score.ToString();
     }
     public void PauseGame()
     {
