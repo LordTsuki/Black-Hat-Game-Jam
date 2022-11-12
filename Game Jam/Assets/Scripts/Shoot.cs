@@ -39,10 +39,25 @@ public class Shoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "EnemyDrone")
         {
-            collision.GetComponent<Enemy>().Damage(damage);
+            collision.GetComponent<EnemyDrone>().Damage(damage);
             Destroy(gameObject);
         }
+        /*if (collision.gameObject.tag == "EnemyWheel")
+        {
+            collision.GetComponent<EnemyWheel>().Damage(damage);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "EnemyAndroid")
+        {
+            collision.GetComponent<EnemyAndroid>().Damage(damage);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "EnemyBoss")
+        {
+            collision.GetComponent<EnemyBoss>().Damage(damage);
+            Destroy(gameObject);
+        }*/
     }
 }

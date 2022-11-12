@@ -12,7 +12,7 @@ public class RandomSpawner : MonoBehaviour
     [Header("Configurations")]
     public float spawnTime;
     public static int enemyNumber;
-    public float difficulty = 10;
+    private float difficulty;
     void Start()
     {
         
@@ -20,7 +20,12 @@ public class RandomSpawner : MonoBehaviour
 
     void Update()
     {
-        EnemySpawn(); 
+        EnemySpawn();
+        difficulty = 1;
+        if (GameController.instance.score > 10 && difficulty < 10)
+        {
+            difficulty = GameController.instance.score / 10;
+        }
     }
 
     void EnemySpawn()
@@ -30,14 +35,14 @@ public class RandomSpawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if (enemyNumber < 10)
+        if (enemyNumber < difficulty)
         {
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
             int randSpawnPoint = Random.Range(0, spawnPoints.Length);
 
             Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
             enemyNumber++;
+            yield return new WaitForSeconds(spawnTime);
         }
-        yield return new WaitForSeconds(spawnTime);
     }
 }

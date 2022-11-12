@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-        //GameController.instance.UpdateKills(score);
     }
 
     void Update()
@@ -48,7 +46,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             isShooting = true;
-            //anim.SetInteger("Transition", 3);
+            anim.SetInteger("Transition", 3);
             GameObject Shoot = Instantiate(shoot, shootPoint.position, shootPoint.rotation);
 
             if(transform.rotation.y == 0)
@@ -62,14 +60,14 @@ public class Player : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);
             isShooting = false;
-            //anim.SetInteger("Transition", 0);
+            anim.SetInteger("Transition", 0);
         }
     }
 
     public void Damage(int damage)
     {
         health -= damage;
-        //anim.SetTrigger("death");
+        anim.SetTrigger("death");
 
         if(health <= 0)
         {
@@ -86,7 +84,7 @@ public class Player : MonoBehaviour
         {
             if (!isJumping)
             {
-                //anim.SetInteger("Transition", 2);
+                anim.SetInteger("Transition", 2);
             }
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -94,14 +92,14 @@ public class Player : MonoBehaviour
         {
             if (!isJumping)
             {
-                //anim.SetInteger("Transition", 2);
+                anim.SetInteger("Transition", 2);
             }
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
         if (movement == 0 && !isJumping && !isShooting)
         {
-            //anim.SetInteger("Transition", 0);
+            anim.SetInteger("Transition", 0);
         }
     }
 
@@ -111,7 +109,7 @@ public class Player : MonoBehaviour
         {
             if (!isJumping)
             {
-                //anim.SetInteger("Transition", 1);
+                anim.SetInteger("Transition", 1);
                 rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
             }

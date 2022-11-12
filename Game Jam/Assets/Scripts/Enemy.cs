@@ -6,17 +6,16 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Enemy : MonoBehaviour
 {
     [Header("Movement")]
-    public float speed;
-    public float walkTime;
+
 
     [Header("Status")]
     public int health;
     public int damage;
     public int score;
 
-    [Header("Commands")]
-    private bool walkRight = true;
-    private float timer;
+    //[Header("Commands")]
+    //private bool walkRight = true;
+    //private float timer;
 
     [Header("Components")]
     private Rigidbody2D rig;
@@ -32,23 +31,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
 
-        if (timer >= walkTime)
-        {
-            walkRight = !walkRight;
-            timer = 0f;
-        }
-        if (walkRight)
-        {
-            transform.eulerAngles = new Vector2(0, 180);
-            rig.velocity = Vector2.right * speed;
-        }
-        else
-        {
-            transform.eulerAngles = new Vector2(0, 0);
-            rig.velocity = Vector2.left * speed;
-        }
     }
 
     public void Damage(int damage)
@@ -71,8 +54,4 @@ public class Enemy : MonoBehaviour
             collision.gameObject.GetComponent<Player>().Damage(damage);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1268f839d8b1297cfbd8f75d62da3b78c564d916
