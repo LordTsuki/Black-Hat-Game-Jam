@@ -12,7 +12,7 @@ public class RandomSpawner : MonoBehaviour
     [Header("Configurations")]
     public float spawnTime;
     public static int enemyNumber;
-    private float difficulty;
+    public float difficulty = 10;
     void Start()
     {
         
@@ -38,7 +38,6 @@ public class RandomSpawner : MonoBehaviour
             Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
             enemyNumber++;
         }
-        difficulty += spawnTime - GameController.instance.score * 0.01f;
-        yield return new WaitForSeconds(difficulty);
+        yield return new WaitForSeconds(spawnTime);
     }
 }

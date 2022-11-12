@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Enemy : MonoBehaviour
-<<<<<<< HEAD
 {
     [Header("Movement")]
     public float speed;
@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("Status")]
     public int health;
     public int damage;
+    public int score;
 
     [Header("Commands")]
     private bool walkRight = true;
@@ -58,39 +59,16 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            RandomSpawner.enemyNumber--;
+            GameController.instance.UpdateKills(score);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().Damage(damage);
         }
-=======
-{ 
-    private Rigidbody2D enemyRb;
- 
-    public float moveSpeed;
-  
-    void Start()
-    {
-        enemyRb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-    }
-
-    private void Move()
-    {
-        enemyRb.velocity = new Vector2(moveSpeed, enemyRb.velocity.y);
->>>>>>> 8df377cd0ad4b5988e1bf9cdcc3924307ec7ee07
     }
 }
